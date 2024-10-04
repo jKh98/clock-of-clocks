@@ -1,0 +1,76 @@
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.analog-clock {
+  width: 40px;
+  height: 40px;
+  margin: 2px;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 40%, #e0e0e0 100%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.clock-face {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 0.5px solid #333;
+  border-radius: 50%;
+}
+
+.hand {
+  position: absolute;
+  width: 2px;
+  height: 20px; /* Adjust height as needed */
+  bottom: 50%; /* Aligns the bottom of the hand with the center */
+  left: 50%;
+  transform-origin: bottom; /* Rotate around the bottom */
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+.hour-hand {
+  height: 35%; /* Shorter hand for hours */
+  background-color: #333;
+}
+
+.minute-hand {
+  height: 45%; /* Longer hand for minutes */
+  background-color: #333;
+}
+
+/* Add this to your existing CSS */
+@keyframes minute-hand-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hour-hand-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.idle-clock .minute-hand {
+  animation: minute-hand-rotate 10s linear infinite;
+}
+
+.idle-clock .hour-hand {
+  animation: hour-hand-rotate 120s linear infinite;
+}
